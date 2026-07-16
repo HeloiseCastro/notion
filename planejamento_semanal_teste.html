@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Planner Semanal</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:#f3f5f7;
+    padding:40px;
+}
+
+h1{
+
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.container{
+
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+
+}
+
+.dia{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+}
+
+.dia h2{
+
+    text-align:center;
+    margin-bottom:15px;
+    color:#4F46E5;
+
+}
+
+label{
+
+    display:block;
+    margin-bottom:12px;
+
+    cursor:pointer;
+
+}
+
+input{
+
+    margin-right:8px;
+
+}
+
+textarea{
+
+    width:100%;
+
+    height:90px;
+
+    margin-top:15px;
+
+    resize:none;
+
+    border:none;
+
+    background:#f7f7f7;
+
+    border-radius:10px;
+
+    padding:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>📅 Meu Planner Semanal</h1>
+
+<div class="container">
+
+<div class="dia">
+
+<h2>Segunda</h2>
+
+<label><input type="checkbox"> Faculdade</label>
+<label><input type="checkbox"> Trabalho</label>
+<label><input type="checkbox"> Robótica</label>
+<label><input type="checkbox"> Estudar</label>
+
+<textarea placeholder="Anotações..."></textarea>
+
+</div>
+
+<div class="dia">
+
+<h2>Terça</h2>
+
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+
+<textarea placeholder="Anotações..."></textarea>
+
+</div>
+
+<div class="dia">
+
+<h2>Quarta</h2>
+
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+
+<textarea placeholder="Anotações..."></textarea>
+
+</div>
+
+<div class="dia">
+
+<h2>Quinta</h2>
+
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+
+<textarea placeholder="Anotações..."></textarea>
+
+</div>
+
+<div class="dia">
+
+<h2>Sexta</h2>
+
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+
+<textarea placeholder="Anotações..."></textarea>
+
+</div>
+
+<div class="dia">
+
+<h2>Sábado</h2>
+
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+
+<textarea placeholder="Anotações..."></textarea>
+
+</div>
+
+<div class="dia">
+
+<h2>Domingo</h2>
+
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+<label><input type="checkbox"></label>
+
+<textarea placeholder="Anotações..."></textarea>
+
+</div>
+
+</div>
+
+</body>
+</html>
