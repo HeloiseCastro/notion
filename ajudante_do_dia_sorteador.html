@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Sorteador de Ajudante</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+
+height:100vh;
+
+background:linear-gradient(135deg,#6C63FF,#9D4EDD,#3A86FF);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+overflow:hidden;
+
+}
+
+.card{
+
+background:white;
+
+padding:40px;
+
+border-radius:25px;
+
+width:500px;
+
+box-shadow:0 25px 60px rgba(0,0,0,.25);
+
+text-align:center;
+
+position:relative;
+
+}
+
+h1{
+
+margin-bottom:20px;
+
+color:#4F46E5;
+
+}
+
+textarea{
+
+width:100%;
+
+height:180px;
+
+padding:15px;
+
+border-radius:15px;
+
+border:2px solid #ddd;
+
+resize:none;
+
+font-size:16px;
+
+margin-bottom:20px;
+
+}
+
+button{
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:50px;
+
+background:#6C63FF;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.05);
+
+background:#574bff;
+
+}
+
+#resultado{
+
+margin-top:35px;
+
+font-size:38px;
+
+font-weight:bold;
+
+color:#6C63FF;
+
+min-height:60px;
+
+position:relative;
+
+}
+
+.estrela{
+
+position:absolute;
+
+font-size:24px;
+
+animation:brilho 1.5s infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes brilho{
+
+0%{
+
+opacity:0;
+
+transform:translateY(15px) scale(.4);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:translateY(-10px) scale(1.3);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:translateY(-30px) scale(.5);
+
+}
+
+}
+
+.ganhador{
+
+animation:ganhou .8s ease;
+
+}
+
+@keyframes ganhou{
+
+0%{
+
+transform:scale(.3);
+
+opacity:0;
+
+}
+
+60%{
+
+transform:scale(1.3);
+
+}
+
+100%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🏆 Sorteador do Ajudante do Dia</h1>
+
+<p style="margin-bottom:15px;color:#666;">
+Digite um aluno por linha
+</p>
+
+<textarea id="nomes" placeholder="Maria
+João
+Pedro
+Ana
+Lucas"></textarea>
+
+<button onclick="sortear()">
+🎲 Sortear
+</button>
+
+<div id="resultado"></div>
+
+</div>
+
+<script>
+
+function criarBrilho(){
+
+const estrela=document.createElement("div");
+
+estrela.className="estrela";
+
+estrela.innerHTML=Math.random()>0.5?"✨":"⭐";
+
+estrela.style.left=(Math.random()*90+5)+"%";
+
+estrela.style.top=(Math.random()*90+5)+"%";
+
+estrela.style.fontSize=(20+Math.random()*25)+"px";
+
+document.body.appendChild(estrela);
+
+setTimeout(()=>{
+
+estrela.remove();
+
+},1500);
+
+}
+
+function sortear(){
+
+let alunos=document
+.getElementById("nomes")
+.value
+.split("\n")
+.map(n=>n.trim())
+.filter(n=>n!="");
+
+if(alunos.length==0){
+
+alert("Digite os nomes dos alunos!");
+
+return;
+
+}
+
+const resultado=document.getElementById("resultado");
+
+let contador=0;
+
+const animacao=setInterval(()=>{
+
+resultado.innerHTML=
+alunos[Math.floor(Math.random()*alunos.length)];
+
+contador++;
+
+},70);
+
+setTimeout(()=>{
+
+clearInterval(animacao);
+
+const escolhido=
+alunos[Math.floor(Math.random()*alunos.length)];
+
+resultado.innerHTML="🏅 "+escolhido;
+
+resultado.classList.remove("ganhador");
+
+void resultado.offsetWidth;
+
+resultado.classList.add("ganhador");
+
+for(let i=0;i<35;i++){
+
+setTimeout(criarBrilho,i*40);
+
+}
+
+},2500);
+
+}
+
+</script>
+
+</body>
+</html>
